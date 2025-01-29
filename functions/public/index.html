@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Km Claims App</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Km Claims App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header Section -->
+<header class="bg-primary text-white text-center py-5">
+  <div class="container">
+    <h1>Welcome to the Km Claims App</h1>
+    <p class="lead">Easily track and manage your travel claims!</p>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="container my-5">
+  <!-- Form Section -->
+  <div class="card shadow mb-4">
+    <div class="card-header bg-dark text-white">
+      <h3 class="card-title">Add a New Claim</h3>
+    </div>
+    <div class="card-body">
+      <form id="claim-form">
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" class="form-control" id="date" required>
+        </div>
+        <div class="mb-3">
+          <label for="km" class="form-label">Kilometers</label>
+          <input type="number" class="form-control" id="km" placeholder="Enter kilometers" required>
+        </div>
+        <div class="mb-3">
+          <label for="purpose" class="form-label">Purpose</label>
+          <textarea class="form-control" id="purpose" rows="3" placeholder="Enter purpose of travel" required></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="add-claim">Add Claim</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Claims List Section -->
+  <div class="card shadow">
+    <div class="card-header bg-secondary text-white">
+      <h3 class="card-title">Your Claims</h3>
+    </div>
+    <div class="card-body">
+      <ul id="claims-list" class="list-group">
+        <!-- Dynamically populated claims will appear here -->
+      </ul>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2025 Km Claims App. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- App Script -->
+<script>
+  document.getElementById('add-claim').addEventListener('click', () => {
+    const date = document.getElementById('date').value;
+    const km = document.getElementById('km').value;
+    const purpose = document.getElementById('purpose').value;
+
+    if (date && km && purpose) {
+      const claimItem = document.createElement('li');
+      claimItem.className = 'list-group-item';
+      claimItem.textContent = `${date}: ${km} km (${purpose})`;
+      document.getElementById('claims-list').appendChild(claimItem);
+
+      // Clear form fields
+      document.getElementById('claim-form').reset();
+    } else {
+      alert('Please fill out all fields.');
+    }
+  });
+</script>
+</body>
+</html>

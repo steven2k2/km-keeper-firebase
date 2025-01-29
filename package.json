@@ -1,0 +1,24 @@
+{
+  "name": "km-keeper-firebase",
+  "version": "1.0.0",
+  "description": "Active Firebase hosted app.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steven2k2/km-keeper-firebase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steven2k2/km-keeper-firebase/issues"
+  },
+  "homepage": "https://github.com/steven2k2/km-keeper-firebase#readme",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  }
+}
